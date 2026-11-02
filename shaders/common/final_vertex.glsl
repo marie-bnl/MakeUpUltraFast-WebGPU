@@ -25,5 +25,5 @@ void main() {
     gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
     texcoord = gl_MultiTexCoord0.xy;
 
-    exposure = texture2D(gaux3, vec2(0.5)).r;
+    exposure = 1.0;
 }
