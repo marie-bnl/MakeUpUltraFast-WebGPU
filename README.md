@@ -1,6 +1,12 @@
 # MakeUp Ultra Fast
 High performance Minecraft shader (Java).
 
+## Fork
+
+This fork makes the shader WebGPU-compliant so it can be used by [PommeMC](https://github.com/PommeMC/Client) (see issue https://github.com/PommeMC/Client/issues/870).
+
+It breaks support for Iris custom dimensions because it used forbidden operations in its vertex shaders and I don't know how to implement it correctly (I'm not a shader dev).
+
 ## Version: 9.6
 
 ### This version works in Optifine and Iris 1.5.1 or higher.
