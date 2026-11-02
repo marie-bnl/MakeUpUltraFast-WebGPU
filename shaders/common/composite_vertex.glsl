@@ -52,7 +52,10 @@ varying float exposure;  // Flat
 #endif
 
 #if (VOL_LIGHT == 1 && !defined NETHER) || (VOL_LIGHT == 2 && defined SHADOW_CASTING && !defined NETHER)
-    varying mat4 modeli_times_projectioni;
+    varying vec4 modeli_times_projectioni_0;
+    varying vec4 modeli_times_projectioni_1;
+    varying vec4 modeli_times_projectioni_2;
+    varying vec4 modeli_times_projectioni_3;
 #endif
 
 /* Utility functions */
@@ -93,6 +96,9 @@ void main() {
     #endif
 
     #if (VOL_LIGHT == 1 && !defined NETHER) || (VOL_LIGHT == 2 && defined SHADOW_CASTING && !defined NETHER)
-        modeli_times_projectioni = gbufferModelViewInverse * gbufferProjectionInverse;
+        modeli_times_projectioni_0 = gbufferModelViewInverse[0] * gbufferProjectionInverse[0];
+        modeli_times_projectioni_1 = gbufferModelViewInverse[1] * gbufferProjectionInverse[1];
+        modeli_times_projectioni_2 = gbufferModelViewInverse[2] * gbufferProjectionInverse[2];
+        modeli_times_projectioni_3 = gbufferModelViewInverse[3] * gbufferProjectionInverse[3];
     #endif
 }

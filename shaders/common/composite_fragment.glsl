@@ -71,7 +71,10 @@ varying float exposure;
 #endif
 
 #if (VOL_LIGHT == 1 && !defined NETHER) || (VOL_LIGHT == 2 && defined SHADOW_CASTING && !defined NETHER)
-    varying mat4 modeli_times_projectioni;
+    varying vec4 modeli_times_projectioni_0;
+    varying vec4 modeli_times_projectioni_1;
+    varying vec4 modeli_times_projectioni_2;
+    varying vec4 modeli_times_projectioni_3;
 #endif
 
 /* Utility functions */
@@ -96,6 +99,14 @@ varying float exposure;
 // MAIN FUNCTION ------------------
 
 void main() {
+    #if (VOL_LIGHT == 1 && !defined NETHER) || (VOL_LIGHT == 2 && defined SHADOW_CASTING && !defined NETHER)
+        mat4 modeli_times_projectioni;
+        modeli_times_projectioni[0] = modeli_times_projectioni_0;
+        modeli_times_projectioni[1] = modeli_times_projectioni_1;
+        modeli_times_projectioni[2] = modeli_times_projectioni_2;
+        modeli_times_projectioni[3] = modeli_times_projectioni_3;
+    #endif
+
     vec4 blockColor = texture2DLod(colortex1, texcoord, 0);
     float d = texture2DLod(depthtex0, texcoord, 0).r;
     float linearDepth = ld(d);
